@@ -21,7 +21,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var emo = '';
+  String emo = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
             style: TextStyle(fontSize: 50, color: Colors.blueAccent),
           ),
           EmojiPicker(
+            ignored: ["😂","🤣"],
             rows: 2,
             columns: 6,
             buttonMode: ButtonMode.MATERIAL,
