@@ -10,7 +10,10 @@ class FinalAvatarScreen extends StatelessWidget {
       body: Center(
         child: Text(
           emoji,
-          style: TextStyle(fontSize: 50,)),
+          style: TextStyle(
+            fontSize: 300,
+          ),
+        ),
       ),
     );
   }
