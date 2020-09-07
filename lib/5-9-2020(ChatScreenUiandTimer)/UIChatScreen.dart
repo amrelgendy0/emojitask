@@ -1,6 +1,6 @@
-import 'package:emojitask/5-9-2020/Widgets/MessageBubble.dart';
-import 'package:emojitask/5-9-2020/Widgets/SendMessageArea.dart';
 import 'package:flutter/material.dart';
+import 'Widgets/MessageBubble.dart';
+import 'Widgets/SendMessageArea.dart';
 import 'Widgets/Timer.dart';
 
 class UIChatScreen extends StatelessWidget {

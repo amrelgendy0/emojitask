@@ -1,6 +1,7 @@
 import 'package:emoji_picker/emoji_picker.dart';
-import 'package:emojitask/5-8-2020/FinalAvatarScreen.dart';
 import 'package:flutter/material.dart';
+
+import 'FinalAvatarScreen.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<String> _ignored = ["😂","🤣"];
   String emo = '';
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class _HomeState extends State<Home> {
             style: TextStyle(fontSize: 50, color: Colors.blueAccent),
           ),
           EmojiPicker(
-            ignored: ["😂","🤣"],
+            ignored: _ignored,
             rows: 2,
             columns: 6,
             buttonMode: ButtonMode.MATERIAL,
@@ -29,6 +31,7 @@ class _HomeState extends State<Home> {
               setState(() {
                 emo = emoji.emoji;
               });
+              print(emoji);
             },
           ),
           FlatButton(color: Colors.purpleAccent,
