@@ -106,6 +106,11 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
     return Padding(
       padding: EdgeInsets.only(bottom: 10),
       child: TextFormField(
+        validator: (text) {
+          if (text.isEmpty && index < 2) {
+            return 'Must not be embty';
+          }
+        },
         decoration: InputDecoration(
           fillColor: Colors.grey.withOpacity(.3),
           filled: true,
