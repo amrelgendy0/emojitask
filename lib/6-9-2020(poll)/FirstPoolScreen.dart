@@ -107,7 +107,7 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
       padding: EdgeInsets.only(bottom: 10),
       child: TextFormField(
         validator: (text) {
-          if (text.isEmpty && index < 2) {
+          if (text.trim()=='' && index < 2) {
             return 'Must not be embty';
           }
         },
@@ -156,7 +156,7 @@ class QeustionTextField extends StatelessWidget {
       child: TextFormField(
         maxLines: 2,
         validator: (String value) {
-          if (value.isEmpty) {
+          if (value.trim()=='') {
             return 'Can\'t Be Empty !';
           }
         },
