@@ -43,23 +43,24 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
             children: [
               QeustionTextField(
                 hint: 'Type Your Question..',
-                onClick: (aa) {
+                onSaved: (aa) {
                   _ChoisesToSend.add(aa);
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(6))),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(6))),
                 child: Column(
                   children: [
                     Column(children: _oo),
                     if (counter <= numOfChoise - 3)
                       IconButton(
-                        icon: Icon(Icons.add),
+                        icon: const Icon(Icons.add),
                         onPressed: () {
                           setState(() {
                             add();
@@ -74,10 +75,10 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
                             print(_ChoisesToSend);
                           }
                         },
-                        child: Text("Send"))
+                        child: const Text("Send"))
                   ],
                 ),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 margin: EdgeInsets.only(
                     top: 20,
                     left: MediaQuery.of(context).size.width * 0.1,
@@ -92,6 +93,10 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
     _oo.add(_choiseTextField(_oo.length));
   }
 
+  void remove(int index) {
+    _oo.replaceRange(index, index + 1, [const SizedBox()]);
+  }
+
   int get counter {
     int _count = 0;
     _oo.forEach((element) {
@@ -104,11 +109,11 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
 
   Widget _choiseTextField(int index) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 10),
       child: TextFormField(
         validator: (text) {
-          if (text.trim()=='' && index < 2) {
-            return 'Must not be embty';
+          if (text.trim() == '' && index < 2) {
+            return  'Must not be embty';
           }
         },
         decoration: InputDecoration(
@@ -118,15 +123,15 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
               ? GestureDetector(
                   onTap: () {
                     setState(() {
-                      _oo.replaceRange(index, index + 1, [SizedBox()]);
+                      remove(index);
                     });
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.clear,
                     color: Colors.red,
                   ),
                 )
-              : SizedBox(),
+              : const SizedBox(),
           hintText: 'Type a Choise',
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
@@ -146,9 +151,9 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
 
 class QeustionTextField extends StatelessWidget {
   final String hint;
-  final Function onClick;
+  final Function onSaved;
 
-  QeustionTextField({@required this.onClick, @required this.hint});
+  QeustionTextField({@required this.onSaved, @required this.hint});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -156,22 +161,22 @@ class QeustionTextField extends StatelessWidget {
       child: TextFormField(
         maxLines: 2,
         validator: (String value) {
-          if (value.trim()=='') {
+          if (value.trim() == '') {
             return 'Can\'t Be Empty !';
           }
         },
-        onSaved: onClick,
+        onSaved: onSaved,
         decoration: InputDecoration(
           hintText: hint,
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.black)),
+              borderSide: const BorderSide(color: Colors.black)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.black)),
+              borderSide: const BorderSide(color: Colors.black)),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.black)),
+              borderSide: const BorderSide(color: Colors.black)),
         ),
       ),
     );
