@@ -6,16 +6,16 @@ class FirstPollScreen extends StatefulWidget {
 }
 
 class _FirstPollScreenState extends State<FirstPollScreen> {
-  bool isfirst;
+  bool _isfirst;
   @override
   void initState() {
-    isfirst = true;
+    _isfirst = true;
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
-    if (isfirst) {
+    if (_isfirst) {
       _oo.addAll([
         SizedBox(
           child: _choiseTextField(0),
@@ -24,7 +24,7 @@ class _FirstPollScreenState extends State<FirstPollScreen> {
           child: _choiseTextField(1),
         ),
       ]);
-      isfirst = false;
+      _isfirst = false;
     }
     super.didChangeDependencies();
   }
